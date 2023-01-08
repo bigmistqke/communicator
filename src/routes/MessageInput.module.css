@@ -1,4 +1,4 @@
-.inputContainer {
+.footer {
   flex: 0;
   padding: 20px;
   padding-left: 30px;
@@ -12,32 +12,34 @@
   text-transform: uppercase;
 }
 
-.inputContainer * {
+.footer * {
   font-size: var(--font-size-md);
 }
 
-.textarea {
-  line-height: calc(var(--row-height) - 3px - 20px);
-  background: white;
-  /* padding-top: 5px; */
-  /* padding-bottom: 5px; */
-  padding-left: 15px;
-  padding-right: 15px;
+.textareaContainer {
+  border-radius: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 27px;
+  padding-right: 27px;
   outline: none;
   border: none;
   border-radius: 25px;
-  text-transform: uppercase;
-  max-height: 150px;
-}
-.textarea textarea {
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-.textarea * {
-  font-size: var(--font-size-md);
+  background: white;
 }
 
-.inputContainer textarea:focus {
+.textareaContainer textarea {
+  line-height: 36px;
+  font-family: inherit;
+  padding: 0px;
+  width: 100%;
+  border: none;
+  resize: none;
+
+  text-transform: uppercase;
+}
+
+.footer textarea:focus {
   outline: none;
 }
 

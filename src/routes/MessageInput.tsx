@@ -22,12 +22,16 @@ const Input = () => {
 
   return (
     <>
-      <AutoTextarea
-        onkeydown={onkeydown}
-        ref={(hu) => setTextarea(textarea)}
-        placeholder="your message"
-        class={s.textarea}
-      />
+      <div class={s.textareaContainer}>
+        <AutoTextarea
+          onkeydown={onkeydown}
+          ref={(textarea) => setTextarea(textarea)}
+          placeholder="your message"
+          class={s.textarea}
+          maxRows={4}
+          spellcheck={false}
+        />
+      </div>
       <Show when={!store.bools.isMobile}>
         <button onclick={() => submitMessage(textarea()!.value)}>enter</button>
       </Show>
@@ -45,7 +49,7 @@ export default () => {
     )} seconds`
 
   return (
-    <div class={s.inputContainer}>
+    <div class={s.footer}>
       <Show
         when={store.timeToNextMessage === 0}
         fallback={<div class={s.marquee}>{waitMessage()}</div>}

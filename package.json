@@ -29,6 +29,7 @@
     "reactive-localstorage": "^1.0.1",
     "solid-firebase": "^0.1.6",
     "solid-js": "^1.6.6",
+    "solid-textarea-autosize": "^0.0.0",
     "xmorse": "^1.0.0"
   }
 }
