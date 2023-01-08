@@ -1,0 +1,35 @@
+.messageContainer {
+  overflow: auto;
+  padding-top: 10px;
+  padding: 20px;
+}
+.messageContainer label {
+  font-size: 8pt;
+  line-height: 16pt;
+  color: lightgrey;
+}
+
+.messageRow {
+  display: flex;
+}
+
+.message {
+  flex: 1;
+  line-height: var(--row-height);
+  font-size: var(--font-size);
+  text-transform: uppercase;
+  padding-left: 10px;
+  line-height: var(--row-height);
+}
+.selected {
+  top: -1px;
+  bottom: -1px;
+  position: sticky;
+  box-shadow: 0px 0px 20px black;
+  background: black;
+  border-top: 1px solid white;
+}
+
+.borders {
+  border-bottom: 1px solid white;
+}

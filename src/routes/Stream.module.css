@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  flex: 1;
+  gap: 30px;
+  padding: 30px;
+}
+
+.page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.frameContainer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  justify-content: center;
+  position: relative;
+}
+.frameContainer > iframe {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  flex: 1;
+  border: none;
+  transition: opacity 1s;
+}
+
+@media only screen and (max-aspect-ratio: 1/1) {
+  .container {
+    flex-direction: column;
+  }
+}

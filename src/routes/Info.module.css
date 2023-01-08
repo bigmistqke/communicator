@@ -1,0 +1,10 @@
+.container {
+  flex: 1;
+  padding: 20px;
+  font-size: 30px;
+  line-height: var(--row-height);
+  padding-right: 90px;
+  padding-left: 30px;
+  overflow: auto;
+  white-space: pre-wrap;
+}

@@ -1,0 +1,10 @@
+.light {
+  border-radius: 100%;
+  border: 1px solid white;
+  width: var(--row-height);
+  height: var(--row-height);
+  background: black;
+}
+.light.on {
+  background: white;
+}

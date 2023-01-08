@@ -1,0 +1,32 @@
+.page {
+  flex: 1;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.inputRow {
+  padding: 10px;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 75%;
+  overflow: hidden;
+}
+
+.input {
+  text-align: center;
+}
+
+.button {
+  width: 100%;
+}
+
+.introduction {
+  padding: 10px;
+}
