@@ -1,7 +1,7 @@
 ## COMMUNICATOR
 
 💸 commisioned by [Bogdan Seredyak](https://seredyak.com/)<br/>
-🔥 powered by `solidjs`, `solid-textarea-autosize`, `nodejs` and `firebase`
+🔥 powered by `solidjs`, `nodejs` and `firebase`
 
 The website/backend is part of an art installation:<br/>
 1. A beam of light is piercing through the sky.<br/>
