@@ -6,10 +6,15 @@
   padding: 10px;
   box-shadow: 0px 0px 20px black;
   z-index: 5;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .header a {
+  text-transform: uppercase;
+  text-align: left;
   font-size: var(--font-size-sm);
+  word-break: break-word;
 }
 
 .header a:hover,
@@ -17,27 +22,37 @@
   text-decoration: underline !important;
 }
 
+.header a:hover .infoLink,
+.header :global(.active) .infoLink {
+  background-color: white;
+  color: black;
+}
+
 .circleButton {
   padding-left: 0px;
   padding-right: 0px;
-  text-align: center;
-}
-.circleButton > * {
-  margin-left: 2px;
+  text-align: center !important;
 }
 
 .introduction {
-  padding-left: 10px;
   font-size: 8pt;
+}
+
+.infoLink {
+  border: 1px solid white;
+  border-radius: 100%;
+  width: var(--font-size);
+  height: var(--font-size);
+  display: inline-block;
 }
 
 @media only screen and (max-width: 600px) {
   .header {
+    padding-left: 20px;
     grid-template-columns: 1fr 1fr 0fr;
   }
   .header a {
     text-align: left;
-    padding-left: 20px;
   }
   .introduction {
     display: none;

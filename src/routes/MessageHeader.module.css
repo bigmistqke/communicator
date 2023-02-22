@@ -1,0 +1,30 @@
+.messageHeader {
+  font-size: 8pt;
+  line-height: 16pt;
+  color: rgb(121, 121, 121) !important;
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr 1fr var(--row-height);
+  gap: 10px;
+  text-transform: lowercase;
+}
+.date {
+  display: flex;
+}
+.date > span {
+  flex: 1;
+}
+.isCommunicating {
+  text-align: right;
+  color: white;
+}
+.messageHeader span * {
+  flex: 1;
+}
+@media only screen and (max-width: 600px) {
+  .messageHeader {
+    grid-template-columns: 1fr 1fr 1fr 1fr var(--row-height) !important;
+  }
+  .messageHeader .isCommunicating {
+    display: none;
+  }
+}

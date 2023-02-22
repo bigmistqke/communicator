@@ -1,12 +1,4 @@
 import {
-  addDoc,
-  collection,
-  deleteDoc,
-  doc,
-  getDocs,
-  serverTimestamp,
-} from 'firebase/firestore'
-import {
   createEffect,
   createSelector,
   createSignal,
@@ -80,13 +72,20 @@ export default () => {
         style={{ opacity: hidden() ? 0 : 1 }}
       >
         <For each={store.messages}>
-          {({ message, username, id }) => (
+          {(data) => (
             <Message
-              isSelected={!hidden() && isSelected(id)}
-              borders={isSelected(id)}
-              message={message}
-              username={username}
-              id={id}
+              selected={!hidden() && isSelected(data.id)}
+              borders={isSelected(data.id)}
+              message={data.message}
+              username={data.username}
+              location={data.location}
+              timestamp={data.timestamp}
+              past={
+                data.timestamp &&
+                store.selectedMessageTimestamp &&
+                data.timestamp.seconds < store.selectedMessageTimestamp.seconds
+              }
+              id={data.id}
             />
           )}
         </For>

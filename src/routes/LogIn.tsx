@@ -1,14 +1,15 @@
 import { useNavigate } from '@solidjs/router'
 import { createSignal } from 'solid-js'
-import { setUsername } from '../Store'
+import { setLocation, setUsername } from '../Store'
 import s from './LogIn.module.css'
 
 export default () => {
-  let ref: HTMLInputElement
-  const navigate = useNavigate()
-  const [error, setError] = createSignal()
+  let name: HTMLInputElement, location: HTMLInputElement
 
-  const enter = () => setUsername(ref.value || 'anonymous')
+  const enter = () => {
+    setLocation(location.value || 'somewhere')
+    setUsername(name.value || 'anonymous')
+  }
 
   const onkeydown = (e) => {
     if (e.code === 'Enter') {
@@ -23,7 +24,13 @@ export default () => {
           class={s.input}
           placeholder="username"
           onkeydown={onkeydown}
-          ref={ref!}
+          ref={name!}
+        />
+        <input
+          class={s.input}
+          placeholder="location"
+          onkeydown={onkeydown}
+          ref={location!}
         />
         <button class={s.button} onclick={enter}>
           enter

@@ -1,4 +1,4 @@
-import { A, Link, NavLink, Outlet, useNavigate } from '@solidjs/router'
+import { A, Outlet, useNavigate } from '@solidjs/router'
 import { createEffect, createSignal } from 'solid-js'
 import { store } from '../Store'
 import s from './Header.module.css'
@@ -30,11 +30,11 @@ export default () => {
       <header class={s.header}>
         <span class={s.introduction}>{introduction[index()]}</span>
         <A href={'/'} end>
-          messages
+          feed
         </A>
-        <A href="/stream">streams</A>
+        <A href="/stream">live</A>
         <A href="/info" class={s.circleButton}>
-          <span>?</span>
+          <span class={s.infoLink}>i</span>
         </A>
       </header>
       <Outlet />

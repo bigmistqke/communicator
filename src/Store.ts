@@ -6,9 +6,11 @@ import {
   Firestore,
   FirestoreError,
   serverTimestamp,
+  Timestamp,
 } from 'firebase/firestore'
 import { createStore } from 'solid-js/store'
 import { localStorage } from 'reactive-localstorage'
+import { createEffect, on } from 'solid-js'
 
 const [cookie, setCookie] = createStorage({
   api: localStorage,
@@ -24,10 +26,12 @@ interface UseFireStoreReturn<T> {
 const MESSAGE_THROTTLE_TIMESPAN = 10000
 
 const [store, setStore] = createStore<{
+  location?: string
   username?: string
   db?: Firestore
   messages?: DocumentData[]
   selectedMessageId?: string
+  selectedMessageTimestamp?: Timestamp
   youtubeUrls?: DocumentData[]
   light: boolean
   timeToNextMessage: number
@@ -37,10 +41,12 @@ const [store, setStore] = createStore<{
     isMobile: boolean
   }
 }>({
+  location: cookie.location,
   username: cookie.username,
   db: undefined,
   messages: undefined,
   selectedMessageId: undefined,
+  selectedMessageTimestamp: undefined,
   youtubeUrls: undefined,
   light: false,
   timeToNextMessage: !cookie.lastMessageSent
@@ -95,11 +101,23 @@ const initStore = (
   selectedMessageId: string,
   youtubeUrls: DocumentData[]
 ) => {
+  const selectedMessageTimestamp = messages.find(
+    (message) => message.id === selectedMessageId
+  )?.timestamp as Timestamp
+
+  createEffect(
+    on(
+      () => messages,
+      () => console.log('messages', messages)
+    )
+  )
+
   setStore({
     db,
     messages,
     selectedMessageId,
     youtubeUrls,
+    selectedMessageTimestamp,
   })
 }
 
@@ -107,6 +125,11 @@ const setUsername = (username: string) => {
   setStore('username', username)
   setCookie('username', username)
   console.log(cookie.username)
+}
+const setLocation = (location: string) => {
+  setStore('location', location)
+  setCookie('location', location)
+  console.log(cookie.location)
 }
 
 const setLight = (bool: boolean) => {
@@ -130,4 +153,4 @@ const submitMessage = (message: string) => {
   })
 }
 
-export { store, initStore, setUsername, setLight, submitMessage }
+export { store, initStore, setUsername, setLocation, setLight, submitMessage }

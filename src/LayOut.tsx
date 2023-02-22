@@ -11,19 +11,20 @@ export default () => {
       <Show
         when={all(
           store.selectedMessageId,
-          store.username,
           store.messages?.find(
             (message) => message.id === store.selectedMessageId
           )
         )}
         keyed
       >
-        {([id, username, { message }]) => (
+        {([id, { message, username, timestamp, location }]) => (
           <Message
             id={id}
+            selected={true}
             message={message}
             username={username}
-            isSelected={true}
+            timestamp={timestamp}
+            location={location}
           />
         )}
       </Show>
